@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS</title>
+</head>
+<body>
+    <p id="paragrafo">2 - Alterar via DOM o texto de um parágrafo identificado pelo id=paragrafo;</p>
+    <button class="contador" type="button">
+        Contador de Cliques <span class="badge">0</span>
+    </button>
+    <p id="cor">Alterar cor</p>
+    <button onclick="addClasse()">Adicionar Classe</button>
+    <button onclick="remvClasse()">Remover Classe</button>
+    <ul id="lista-tarefas">
+
+    </ul>
+     <script>
+        alert('Olá Mundo');
+
+        document.getElementById('paragrafo').innerHTML = 'Teste';
+
+        var contador = document.querySelector('.badge');
+        document.querySelector('button').addEventListener('click',function(){
+            var numero = parseInt(contador.textContent) + 1;
+            contador.textContent = numero;
+        });
+
+       
+            var cores = document.getElementById("cor");
+            cor.style.color = "red";
+
+            function addClasse(){
+                var elemento = document.getElementById("paragrafo");
+                elemento.classList.add("destacado");
+            }
+
+            function remvClasse(){
+                var elemento = document.getElementById("paragrafo");
+                elemento.classList.remove("destacado");
+            }
+
+            document.addEventListener("tarefa", function(){
+                var lista = document.getElementById("lista-tarefas");
+
+                for (var i = 1; i <= 4; i++) {
+                    var item = document.createElement("li");
+                    var checkbox = document.createElement("input")
+                    checkbox.type = "checkbox";
+                    item.appendChild(checkbox);
+
+                    var tarefa = document.createElement("span");
+
+                    tarefa.textContent = "Tarefa " + i;
+                    item.appendChild(tarefa);
+
+                    lista.appendChild(item);
+
+                    checkbox.addEventListener("change", function() {
+                        if (this.checked) {
+                        tarefa.style.textDecoration = "line-through";
+                      } else {
+                             tarefa.style.textDecoration = "none";
+                        }
+                    });
+                }
+            });
+     </script>
+</body>
+</html>
